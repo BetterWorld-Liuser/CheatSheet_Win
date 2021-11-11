@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    
+    x:Name="SettingWindow"
     >
 
     <Grid>
@@ -16,16 +16,15 @@
         </Grid.RowDefinitions>
         <StackPanel Margin="30,30" Spacing="17" Grid.Row="0" Background="Transparent">
 
-            <ToggleSwitch OnContent="" OffContent="">开机启动</ToggleSwitch>
-
-            <ToggleSwitch OnContent="" OffContent="">离线模式</ToggleSwitch>
+            <ToggleSwitch OnContent="" OffContent="" IsOn="{x:Bind configManager.Start_Up,Mode=TwoWay}">开机启动</ToggleSwitch>
+            <ToggleSwitch OnContent="" OffContent="" IsOn="{x:Bind configManager.Single_Mode,Mode=TwoWay}">离线模式</ToggleSwitch>
             <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" ></ColumnDefinition>
                     <ColumnDefinition Width="3*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14">快捷键组合:</TextBlock>
-                <TextBox Grid.Column="1" Width="150" HorizontalAlignment="Left"></TextBox>
+                <TextBox Grid.Column="1" Width="150" HorizontalAlignment="Left" Text="{x:Bind configManager.ShortCut,Mode=TwoWay}"></TextBox>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -33,14 +32,14 @@
                     <ColumnDefinition Width="3*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14">订阅地址:</TextBlock>
-                <TextBlock   Margin="0 0 10 0"  FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" ></TextBlock>
+                <TextBlock   Margin="0 0 10 0"  FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Text="{x:Bind configManager.Sub_Address,Mode=TwoWay}" ></TextBlock>
                 <TextBox Grid.Column="1"></TextBox>
             </Grid>
 
         </StackPanel>
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Spacing="20" Margin="0 0 20 0" Grid.Row="1" Background="Transparent">
-            <Button Width="100">保存</Button>
-            <Button Width="100">取消</Button>
+            <Button Width="100" Click="Save_Configure">保存</Button>
+            <Button Width="100" Click="Close_Window">取消</Button>
         </StackPanel>
     </Grid>
 

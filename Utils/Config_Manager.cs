@@ -38,6 +38,10 @@ namespace CheatSheet_Win.Util
         }
 
 
+        //2.往数据库存设置
+        public void Save_Config_To_DB() { }
+
+
         
 
     }

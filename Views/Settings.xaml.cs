@@ -24,9 +24,25 @@ namespace CheatSheet_Win.Views
     /// </summary>
     public sealed partial class Settings : Window
     {
+        public ConfigManager configManager;
+        
+
         public Settings()
         {
             this.InitializeComponent();
+            configManager = ConfigManager.GetInstance();
+            
+        }
+
+        private void Save_Configure(object sender, RoutedEventArgs e)
+        {
+            configManager.Save_Config_To_DB();
+            this.Close();
+        }
+
+        private void Close_Window(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

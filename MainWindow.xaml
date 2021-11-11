@@ -6,7 +6,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="MyButton_Click">Click Me</Button>
-    </StackPanel>
+
+    <Grid >
+        <TextBlock x:Name="label" Text="" HorizontalAlignment="Left" Height="auto" Margin="30,0,0,10" VerticalAlignment="Bottom" Width="auto" FontSize="20pt" FontWeight="Bold"/>
+
+        <Button x:Name="myButton" Click="Import_Csv"  Width="50" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,30,15"  >导入文件</Button>
+
+        <ScrollViewer  x:Name="scrollViewer"  HorizontalAlignment="Center" VerticalAlignment="Center" VerticalScrollBarVisibility="Hidden"  Margin="0,0,0,50">
+
+        </ScrollViewer>
+
+        <TeachingTip x:Name="ToggleHey"                   
+	            Target="{x:Bind myButton}"
+	            Title="注意!"                                        
+	            Subtitle="导入的快捷键只能被手动删除!!">
+            <TeachingTip.IconSource>
+                <SymbolIconSource Symbol="Save" />
+            </TeachingTip.IconSource>
+        </TeachingTip>
+    </Grid>
+
 </Window>
